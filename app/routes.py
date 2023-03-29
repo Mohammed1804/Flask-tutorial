@@ -21,10 +21,13 @@ def index():
 
 
 @app.route('/login', methods=['GET', 'POST'])
+#methods argument acccepts post and get requests as opposed to just get
 def login():
     form = LoginForm()
     if form.validate_on_submit():
+#processes form work, when browser tries to send get request it returns false/post reuquest comes back as true
         flash('Login requested for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
         return redirect(url_for('index'))
+    #if statements are true able to navigate different pages
     return render_template('login.html',  title='Sign In', form=form)
