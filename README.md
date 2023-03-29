@@ -8,4 +8,4 @@ Introduction of web forms to application
 7)Form is added to a HTML template so it can be rendered on a webpage (novalidate is used to tell browser is field requires validation)
 8)Before form can be seen in browser view functiin in routes must be updated
 9)Form data can be filled but application cannot accept/read the data so routes must be updated
-10)
+10)field validation is then improved, while the application shows the form in unsuccessful it does not show why and this is improved in login.html
