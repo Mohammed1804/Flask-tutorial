@@ -5,7 +5,7 @@ from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
 
-
+# the function becomes protected and will not allow access to users that are not authenticated.
 @app.route('/')
 @app.route('/index')
 @login_required
@@ -25,6 +25,7 @@ def index():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+#If user is already logged and goes to login page they will be redirected somewhere else
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = LoginForm()
