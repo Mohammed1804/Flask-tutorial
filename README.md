@@ -1,8 +1,8 @@
-# 1) password hashing in implemented in models.py (converts passwords into long encoded sequences)
-# 2) pip install flask-login (initialized in init.py)
-# 3) prepare the user model for flask login, the flask extention has 4 required items (authenticated, active, anonymous, get_id) incorperated with mixin
-# 4) Preparing loader function (flask login keeps track of logged-in users by storing their unique userid in the user session ) models.py
-# 5) logged-in users changes routes.py
-# 6) logout function
-# 7) Requring users to login
-# 8) Registering users forms.py contains email validator, equal to password check
+1) added a route componant (routes.py) that allows the user to invoke a request to access their profile page
+2) Create a gravater link using the gravater service (avatars associated with users)
+3) insert avatar images into user profiles so when the user goes on their profile they can view their avatar
+4) avatar is also implemented to the posts*
+5) alter index page so that posts also show with avatars, this could be the same as profile but is kept seperate so if the layout is changed it does not need to be changed in both pages
+6) add extra information in profile pages
+7) record the last time a user was seen added (routes)
+8) Profile editor so that users are able to change their information and aboutme section
