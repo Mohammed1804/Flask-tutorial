@@ -4,6 +4,7 @@ from werkzeug.urls import url_parse
 from app import app, db
 from app.forms import LoginForm, RegistrationForm
 from app.models import User
+#import logging
 
 # the function becomes protected and will not allow access to users that are not authenticated.
 @app.route('/')
@@ -54,7 +55,8 @@ def register():
         return redirect(url_for('index'))
     form = RegistrationForm()
     if form.validate_on_submit():
-        user = current_user(username=form.username.data, email=form.email.data)
+        #logger.info(form.username.data)
+        user = User(username=form.username.data, email=form.email.data)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
