@@ -59,8 +59,8 @@ class User(UserMixin, db.Model):
         return self.followed.filter(
             followers.c.followed_id == user.id).count() > 0
 
-#The join query in this instance creates an association table connecting posts and follwersto the posts
-#Followed id is = posts, database takes info from posts and attach it to the follwers table
+#The join query in this instance creates an association table connecting posts and follwers to the posts
+#Followed id = posts, database takes info from posts and attach it to the follwers table
 #join operation gives a lisst of posts followed by some users but more than needed and this is sorted by filter
 #filter only keeps in joined table that have follower_id so only info kept is from the person being followed
 #results sorted by the timestamp field of the post in descending order.
