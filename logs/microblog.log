@@ -64,3 +64,4 @@ jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
 2023-05-25 14:11:49,635 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
 2023-05-25 14:17:16,193 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
 2023-05-25 14:25:06,386 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
+2023-05-25 14:32:00,131 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
