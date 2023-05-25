@@ -10,6 +10,8 @@ import logging
 from logging.handlers import SMTPHandler
 from logging.handlers import RotatingFileHandler
 from flask_mail import Mail
+from flask_babel import Babel
+from flask import request
 
 
 app = Flask(__name__)
@@ -21,7 +23,7 @@ login.login_view = 'login'
 mail = Mail(app)
 bootstrap = Bootstrap(app)
 moment = Moment(app)
-
+babel = Babel(app)
 
 
 #email gets sent when app is not in debug mode
@@ -57,5 +59,16 @@ if not app.debug:
     app.logger.setLevel(logging.INFO)
     app.logger.info('Microblog startup')
 #both app logger/file logger handler set to info/(DEBUG, INFO, WARNING, ERROR and CRITICAL)
+
+
+@babel.localeselector
+def get_locale():
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
+
+
+@babel.localeselector
+def get_locale():
+    # return request.accept_languages.best_match(app.config['LANGUAGES'])
+    return 'es'
 
 from app import routes, models, errors

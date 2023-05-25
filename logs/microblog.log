@@ -1,4 +1,4 @@
-2023-05-24 11:19:19,700 ERROR: Exception on /user/2 [GET] [in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py:1744]
+2023-05-25 14:06:42,464 ERROR: Exception on /user/2 [GET] [in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -15,7 +15,7 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
     return current_app.ensure_sync(func)(*args, **kwargs)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/routes.py", line 93, in user
+  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/routes.py", line 98, in user
     return render_template('user.html', user=user, posts=posts, form=form)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
@@ -44,11 +44,11 @@ Traceback (most recent call last):
   File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/base.html", line 48, in block 'content'
     {% block app_content %}{% endblock %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/user.html", line 34, in block 'app_content'
+  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/user.html", line 35, in block 'app_content'
     {% include '_post.html' %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/_post.html", line 12, in top-level template code
-    said {{ moment(post.timestamp).fromNow() }}:
+  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/_post.html", line 14, in top-level template code
+    {{ _('%(username)s said %(when)s',
     ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_moment/__init__.py", line 229, in fromNow
     return self._render("fromNow", no_suffix=int(no_suffix),
@@ -60,4 +60,7 @@ Traceback (most recent call last):
     return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
            ^^^^^^^^^^^^^^^^^^
 jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
-2023-05-24 11:27:49,126 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:58]
+2023-05-25 14:09:24,139 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
+2023-05-25 14:11:49,635 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
+2023-05-25 14:17:16,193 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
+2023-05-25 14:25:06,386 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
