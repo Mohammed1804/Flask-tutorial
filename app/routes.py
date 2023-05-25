@@ -12,6 +12,7 @@ from app.forms import ResetPasswordForm
 from flask_babel import _, get_locale
 from flask import g
 from flask_babel import get_locale
+from langdetect import detect, LangDetectException
 
 
 
@@ -31,6 +32,12 @@ def before_request():
 def index():
     form = PostForm()
     if form.validate_on_submit():
+        try:
+            language = detect(form.post.data)
+        except LangDetectException:
+            language = ''
+        post = Post(body=form.post.data, author=current_user,
+                    language=language)
         post = Post(body=form.post.data, author=current_user)
         db.session.add(post)
         db.session.commit()
