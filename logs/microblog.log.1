@@ -1,4 +1,4 @@
-2023-05-24 11:19:19,700 ERROR: Exception on /user/2 [GET] [in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py:1744]
+2023-06-11 18:52:16,590 ERROR: Exception on /auth/login [GET] [in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py:1744]
 Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
     response = self.full_dispatch_request()
@@ -12,12 +12,9 @@ Traceback (most recent call last):
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
     return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
-    return current_app.ensure_sync(func)(*args, **kwargs)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/routes.py", line 93, in user
-    return render_template('user.html', user=user, posts=posts, form=form)
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/auth/routes.py", line 29, in login
+    return render_template('auth/login.html', title='Sign In', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
     return _render(app, template, context)
            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -28,9 +25,10 @@ Traceback (most recent call last):
     self.environment.handle_exception()
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
     raise rewrite_traceback_stack(source=source)
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/user.html", line 1, in top-level template code
-    {% extends "base.html" %}
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/base.html", line 1, in top-level template code
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/auth/login.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/base.html", line 1, in top-level template code
     {% extends 'bootstrap/base.html' %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
@@ -41,27 +39,75 @@ Traceback (most recent call last):
     {% block body -%}
   File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
     {% block content -%}
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/base.html", line 48, in block 'content'
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/base.html", line 48, in block 'content'
     {% block app_content %}{% endblock %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/user.html", line 34, in block 'app_content'
-    {% include '_post.html' %}
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/auth/login.html", line 12, in block 'app_content'
+    <p>{{ _('New User?') }} <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a></p>
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/templates/_post.html", line 12, in top-level template code
-    said {{ moment(post.timestamp).fromNow() }}:
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'register'. Did you mean 'auth.register' instead?
+2023-06-11 18:52:17,711 ERROR: Exception on /auth/login [GET] [in /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py:1744]
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1825, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1823, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/auth/routes.py", line 29, in login
+    return render_template('auth/login.html', title='Sign In', form=form)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/templating.py", line 147, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/templating.py", line 130, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jinja2/environment.py", line 1301, in render
+    self.environment.handle_exception()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/jinja2/environment.py", line 936, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/auth/login.html", line 2, in top-level template code
+    {% import 'bootstrap/wtf.html' as wtf %}
     ^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_moment/__init__.py", line 229, in fromNow
-    return self._render("fromNow", no_suffix=int(no_suffix),
-           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_moment/__init__.py", line 186, in _render
-    t = self._timestamp_as_iso_8601(self.timestamp)
-        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_moment/__init__.py", line 182, in _timestamp_as_iso_8601
-    return timestamp.strftime('%Y-%m-%dT%H:%M:%S' + tz)
-           ^^^^^^^^^^^^^^^^^^
-jinja2.exceptions.UndefinedError: 'dict object' has no attribute 'timestamp'
-2023-05-24 11:27:49,126 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:58]
-2023-05-25 13:58:28,333 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
-2023-05-25 14:00:37,525 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
-2023-05-25 14:02:41,545 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
-2023-05-25 14:06:32,527 INFO: Microblog startup [in /Users/mohammedahmed/Documents/Pycharm/Flask-tutorial/app/__init__.py:60]
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/base.html", line 1, in top-level template code
+    {% extends 'bootstrap/base.html' %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 1, in top-level template code
+    {% block doc -%}
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 4, in block 'doc'
+    {%- block html %}
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 20, in block 'html'
+    {% block body -%}
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask_bootstrap/templates/bootstrap/base.html", line 23, in block 'body'
+    {% block content -%}
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/base.html", line 48, in block 'content'
+    {% block app_content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/templates/auth/login.html", line 12, in block 'app_content'
+    <p>{{ _('New User?') }} <a href="{{ url_for('register') }}">{{ _('Click to Register!') }}</a></p>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2034, in url_for
+    return self.handle_url_build_error(error, endpoint, values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/flask/app.py", line 2023, in url_for
+    rv = url_adapter.build(  # type: ignore[union-attr]
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/werkzeug/routing/map.py", line 917, in build
+    raise BuildError(endpoint, values, method, self)
+werkzeug.routing.exceptions.BuildError: Could not build url for endpoint 'register'. Did you mean 'auth.register' instead?
+2023-06-11 19:03:09,343 INFO: Microblog startup [in /Users/mohammedahmed/Documents/GitHub/Flask-tutorial/app/__init__.py:74]
