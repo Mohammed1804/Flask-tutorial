@@ -53,3 +53,6 @@
     {{ super() }}
     {{ moment.include_moment() }}
 {% endblock %}
+
+#Usually import a script to tag to import the moment.js libaray but flask gives option for moment include.
+#super allows for you to use moments.js without losing the base contents
