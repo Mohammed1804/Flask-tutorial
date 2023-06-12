@@ -6,6 +6,6 @@ wtf.quick_form() renders the complete form, includes support for display validat
 
 Dates and times
 install and initialise flask-moment init.py
-flask moment works with moment.js 
+flask moment works with moment.js and is included in base.html
 moment object provides different time formatting in this case using 'LLL' to display the active times in user.html
-same concept for post to show when something is posted
+same concept for post timestamp is included to show when something is posted
