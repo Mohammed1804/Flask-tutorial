@@ -16,6 +16,7 @@
                 <br>
                 <span id="post{{ post.id }}">{{ post.body }}</span>
                 {% if post.language and post.language != g.locale %}
+                translate link will only appear if the language does not match the language in the localeselector
                 <br><br>
                 <span id="translation{{ post.id }}">
                     <a href="javascript:translate(
