@@ -47,6 +47,8 @@ def index():
     posts = current_user.followed_posts().all() #shows followed posts
     return render_template("index.html", title='Home Page', form=form,
                            posts=posts)
+#When a post is submitted the text is run through detect  to determain the language it is written in 
+#if the language cannot be identified an empty string is saved to the database
 
 #Creating a page showing most recent posts
 @app.route('/explore')
