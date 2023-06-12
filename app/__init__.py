@@ -64,11 +64,8 @@ if not app.debug:
 @babel.localeselector
 def get_locale():
     return request.accept_languages.best_match(app.config['LANGUAGES'])
+#function is called upon for each request to select a language translation to use for that request
+#accept languages is a high level interface that gives prefernce to the client lanaguages and locale prefernces 
 
-
-@babel.localeselector
-def get_locale():
-    # return request.accept_languages.best_match(app.config['LANGUAGES'])
-    return 'es'
 
 from app import routes, models, errors
