@@ -25,6 +25,7 @@ babel = Babel()
 def create_app(config_class=Config):
     app = Flask(__name__)
     app.config.from_object(config_class)
+    #create_app() that constructs a Flask application instance, and eliminates the global variable
 
     db.init_app(app)
     migrate.init_app(app, db)
