@@ -1,6 +1,6 @@
 Facelift
 
-Using a popular CSS framework 'bootstrap' to design the page. Start by initialsing bootstap (same as other flask extensions in init.py)
+Using CSS framework 'bootstrap' to design the page. Start by initialsing bootstap (same as other flask extensions in init.py)
 include bootstrap to base.html so that it is inherited to all pages
 wtf.quick_form() renders the complete form, includes support for display validation errors, and all styled as appropriate for the Bootstrap framework (resgister.py).
 
